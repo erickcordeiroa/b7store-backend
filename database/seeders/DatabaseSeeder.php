@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BannersSeeder::class,
             CategorySeeder::class,
-            ProductsSeeder::class
+            ProductsSeeder::class,
+            ProductImageSeeder::class,
         ]);
     }
 }

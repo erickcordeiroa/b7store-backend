@@ -17,6 +17,8 @@ class ProductsSeeder extends Seeder
             "label" => 'Produto de Exemplo',
             "description" => "Descrição do produto de exemplo",
             "price" => 39.99,
+            "views_count" => 0,
+            "sales_count" => 0,
             "category_id" => 1
         ]);
 
@@ -24,6 +26,8 @@ class ProductsSeeder extends Seeder
             "label" => 'Produto de Exemplo 1',
             "description" => "Descrição do produto de exemplo 1",
             "price" => 19.99,
+            "views_count" => 20,
+            "sales_count" => 10,
             "category_id" => 1
         ]);
     }

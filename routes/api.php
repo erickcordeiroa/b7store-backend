@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProductController;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,3 +14,4 @@ Route::get('/health-check', function() {
 });
 
 Route::get('/banners', [BannerController::class, "index"]);
+Route::get('/products', [ProductController::class, "index"]);
