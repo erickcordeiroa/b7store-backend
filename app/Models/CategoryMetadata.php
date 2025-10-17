@@ -6,15 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Product extends Model
+class CategoryMetadata extends Model
 {
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $table = 'category_metadata';
+
     protected $fillable = [
+        'id',
+        'name',
         'category_id',
-        'label',
-        'description',
-        'price',
-        'sales_count',
-        'views_count'
     ];
 
     public function category(): BelongsTo
@@ -22,13 +23,14 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function images(): HasMany
+    public function values(): HasMany
     {
-        return $this->hasMany(ProductImage::class);
+        return $this->hasMany(MetadataValue::class);
     }
 
-    public function metadata(): HasMany
+    public function productMetadata(): HasMany
     {
         return $this->hasMany(ProductMetadata::class);
     }
+
 }
