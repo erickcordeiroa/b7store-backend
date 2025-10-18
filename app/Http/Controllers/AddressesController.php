@@ -51,7 +51,7 @@ class AddressesController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'error' => $validator->errors()->first(),
-                'addresses' => null
+                'address' => null
             ], 400);
         }
 
@@ -60,7 +60,7 @@ class AddressesController extends Controller
 
         return response()->json([
             'error' => null,
-            'addresses' => [
+            'address' => [
                 "id" => $address->id,
                 "zipcode" => $address->zipcode,
                 "street" => $address->street,
