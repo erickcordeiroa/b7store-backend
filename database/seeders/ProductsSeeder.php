@@ -16,6 +16,7 @@ class ProductsSeeder extends Seeder
         Product::create([
             "label" => 'Camisa Laravel - Azul',
             "description" => "Descrição do produto de exemplo",
+            'slug' => 'camisa-laravel-azul',
             "price" => 39.99,
             "views_count" => 0,
             "sales_count" => 0,
@@ -25,6 +26,7 @@ class ProductsSeeder extends Seeder
         Product::create([
             "label" => 'Camisa Laravel - Preto',
             "description" => "Descrição do produto de exemplo 1",
+            "slug" => 'camisa-laravel-preto',
             "price" => 19.99,
             "views_count" => 20,
             "sales_count" => 10,

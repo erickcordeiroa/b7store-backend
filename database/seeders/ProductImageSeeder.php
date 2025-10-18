@@ -15,7 +15,8 @@ class ProductImageSeeder extends Seeder
     {
         $product = Product::first();
         $product->images()->createMany([
-            ['uri' => 'products/image-not-found.jpeg'],
+            ['uri' => 'products/camisa-laravel-azul.jpeg'],
+            ['uri' => 'products/camisa-laravel-azul-2.jpeg'],
         ]);
     }
 }

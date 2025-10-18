@@ -76,8 +76,92 @@ class ProductController extends Controller
                 return [
                     'id' => $product->id,
                     'label' => $product->label,
+                    'slug' => $product->slug,
                     'price' => $product->price,
                     'image' => asset('storage/' . ($product->images->first()->uri ?? 'products/default.png')),
+                    'liked' => false, //TODO: Implementar o Liked
+                ];
+            })
+        ]);
+    }
+
+    public function show(string $slug) 
+    {
+        $product = Product::with(['images', 'category'])->where('slug', $slug)->first();
+
+        if (!$product) {
+            return response()->json([
+                'error' => 'Produto não encontrado',
+                'product' => null,
+                'category' => null,
+            ], 404);
+        }
+
+        $product->increment('views_count');
+
+        $images = ['uri' => asset('storage/products/image-not-found.jpeg')];
+        if (! $product->images->isEmpty() ) {
+            $images = $product->images->map(function ($image) {
+                return asset('storage/' . $image->uri);
+            })->toArray();
+        }
+
+
+        return response()->json([
+            'error' => null,
+            'product' => [
+                'id' => $product->id,
+                'category_id' => $product->category_id,
+                'label' => $product->label,
+                'description' => $product->description,
+                'price' => $product->price,
+                'images' => $images,
+            ],
+            'category' => [
+                'id' => $product->category->id,
+                'name' => $product->category->name,
+                'slug' => $product->category->slug,
+            ],
+        ]);
+    }
+
+    public function related(Request $request, string $slug) 
+    {
+        $validator = Validator::make($request->all(), 
+        ['limit' => ['sometimes', 'numeric', 'min:1', 'max:100']],
+         ['limit' => 'O campo limit deve ser um número']);
+
+        if($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->first(),
+                'products' => []
+            ], 400);
+        }
+
+        $product = Product::where('slug', $slug)->first();
+
+        if (!$product) {
+            return response()->json([
+                'error' => 'Produto não encontrado',
+                'products' => [],
+            ], 404);
+        }
+
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->with('images')
+            ->limit($request->query('limit', 10))
+            ->get();
+
+        return response()->json([
+            'error' => null,
+            'products' => $relatedProducts->map(function ($product) {
+                return [
+                    'id' => $product->id,
+                    'label' => $product->label,
+                    'slug' => $product->slug,
+                    'price' => $product->price,
+                    'image' => asset('storage/' . ($product->images->first()->uri ?? 'products/image-not-found.jpeg')),
                     'liked' => false, //TODO: Implementar o Liked
                 ];
             })

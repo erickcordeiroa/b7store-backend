@@ -15,3 +15,5 @@ Route::get('/health-check', function() {
 
 Route::get('/banners', [BannerController::class, "index"]);
 Route::get('/products', [ProductController::class, "index"]);
+Route::get('/products/{slug}', [ProductController::class, "show"]);
+Route::get('/products/{slug}/related', [ProductController::class, "related"]);
