@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-use App\Models\Category;
+use App\Http\Controllers\UserController;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/health-check', function() {
@@ -20,3 +20,7 @@ Route::get('/products', [ProductController::class, "index"]);
 Route::get('/products/{slug}', [ProductController::class, "show"]);
 Route::get('/products/{slug}/related', [ProductController::class, "related"]);
 Route::get('/categories/{slug}/metadata', [CategoryController::class, "metadata"]);
+Route::post('/cart/mount', [CartController::class, "mount"]);
+Route::get('/cart/shipping', [CartController::class, "shipping"]);
+
+Route::post('/user/register', [UserController::class, 'register']);
