@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressesController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
@@ -25,4 +26,12 @@ Route::get('/cart/shipping', [CartController::class, "shipping"]);
 
 Route::post('/user/register', [UserController::class, 'register']);
 Route::post('/user/login', [UserController::class, 'login']);
-Route::post('/user/logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::resource('/user/addresses', AddressesController::class, [
+        'only' => ['index', 'store', 'update', 'destroy']
+    ]);
+
+    Route::post('/user/logout', [UserController::class, 'logout']);
+});
