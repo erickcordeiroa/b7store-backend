@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -50,5 +51,46 @@ class UserController extends Controller
                 'email' => $user->email,
             ]
         ], 201);
+    }
+
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => 'Usuário ou senha inválidos.',
+                'token' => null
+            ], 400);
+        }
+
+        $user = User::where('email', $request->input('email'))->first();
+        if (!$user || !Hash::check($request->input('password'), $user->password)) {
+            return response()->json([
+                'error' => 'Usuário ou senha inválidos.',
+                'token' => null
+            ], 401);
+        }
+
+        $user->tokens()->delete();
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'error' => null,
+            'token' => $token,
+        ], 200);
+    }
+
+    public function logout(Request $request)
+    {
+        auth()->user()->tokens()->delete();
+
+        return response()->json([
+            'error' => null,
+            'message' => 'Logout realizado com sucesso.'
+        ], 200);
     }
 }
