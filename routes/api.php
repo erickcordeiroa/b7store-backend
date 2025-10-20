@@ -33,5 +33,7 @@ Route::middleware('auth:sanctum')->group(function () {
         'only' => ['index', 'store', 'update', 'destroy']
     ]);
 
+    Route::post('/cart/checkout', [CartController::class, "checkout"]);
+
     Route::post('/user/logout', [UserController::class, 'logout']);
 });
