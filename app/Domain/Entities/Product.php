@@ -1,0 +1,42 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Domain\Entities;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Product extends Model
+{
+    protected $fillable = [
+        'category_id',
+        'label',
+        'description',
+        'slug',
+        'price',
+        'sales_count',
+        'views_count'
+    ];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function metadata(): HasMany
+    {
+        return $this->hasMany(ProductMetadata::class);
+    }
+
+    public function incrementViews(): void
+    {
+        $this->increment('views_count');
+    }
+}

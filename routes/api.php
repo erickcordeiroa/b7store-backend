@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\AddressesController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
+use App\Infrastructure\Http\Controllers\AddressesController;
+use App\Infrastructure\Http\Controllers\BannerController;
+use App\Infrastructure\Http\Controllers\CartController;
+use App\Infrastructure\Http\Controllers\CategoryController;
+use App\Infrastructure\Http\Controllers\ProductController;
+use App\Infrastructure\Http\Controllers\UserController;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +32,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('/user/addresses', AddressesController::class, [
         'only' => ['index', 'store', 'update', 'destroy']
     ]);
+
+    Route::post('/cart/checkout', [CartController::class, "checkout"]);
 
     Route::post('/user/logout', [UserController::class, 'logout']);
 });

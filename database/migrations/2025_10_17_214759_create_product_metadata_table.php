@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\CategoryMetadata;
-use App\Models\MetadataValue;
-use App\Models\Product;
+use App\Domain\Entities\CategoryMetadata;
+use App\Domain\Entities\MetadataValue;
+use App\Domain\Entities\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
