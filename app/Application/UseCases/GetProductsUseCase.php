@@ -6,7 +6,7 @@ namespace App\Application\UseCases;
 
 use App\Application\DTOs\ProductDTO;
 use App\Application\DTOs\ProductFilterDTO;
-use App\Application\Repositories\ProductRepositoryInterface;
+use App\Domain\Repositories\ProductRepositoryInterface;
 use Illuminate\Support\Collection;
 
 class GetProductsUseCase

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories;
 
-use App\Application\Repositories\CategoryRepositoryInterface;
+use App\Domain\Repositories\CategoryRepositoryInterface;
 use App\Domain\Entities\Category;
 
 class CategoryRepository implements CategoryRepositoryInterface

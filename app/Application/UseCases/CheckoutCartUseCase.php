@@ -8,9 +8,9 @@ use App\Application\DTOs\AddressDTO;
 use App\Application\DTOs\CheckoutDTO;
 use App\Application\DTOs\OrderDTO;
 use App\Application\DTOs\OrderProductDTO;
-use App\Application\Repositories\AddressRepositoryInterface;
-use App\Application\Repositories\OrderRepositoryInterface;
-use App\Application\Repositories\ProductRepositoryInterface;
+use App\Domain\Repositories\AddressRepositoryInterface;
+use App\Domain\Repositories\OrderRepositoryInterface;
+use App\Domain\Repositories\ProductRepositoryInterface;
 use App\Domain\Entities\Order;
 use Illuminate\Support\Collection;
 

@@ -6,7 +6,7 @@ namespace App\Application\UseCases;
 
 use App\Application\DTOs\CategoryDTO;
 use App\Application\DTOs\ProductDetailDTO;
-use App\Application\Repositories\ProductRepositoryInterface;
+use App\Domain\Repositories\ProductRepositoryInterface;
 
 class GetProductUseCase
 {

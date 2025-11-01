@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Application\UseCases;
 
 use App\Application\DTOs\CartProductDTO;
-use App\Application\Repositories\ProductRepositoryInterface;
+use App\Domain\Repositories\ProductRepositoryInterface;
 use Illuminate\Support\Collection;
 
 class GetCartProductsUseCase

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Application\UseCases;
 
 use App\Application\DTOs\AddressDTO;
-use App\Application\Repositories\AddressRepositoryInterface;
+use App\Domain\Repositories\AddressRepositoryInterface;
 use Illuminate\Support\Collection;
 
 class GetUserAddressesUseCase

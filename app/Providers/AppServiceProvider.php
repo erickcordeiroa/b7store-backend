@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Application\Repositories\AddressRepositoryInterface;
-use App\Application\Repositories\BannerRepositoryInterface;
-use App\Application\Repositories\CategoryRepositoryInterface;
-use App\Application\Repositories\OrderRepositoryInterface;
-use App\Application\Repositories\ProductRepositoryInterface;
-use App\Application\Repositories\UserRepositoryInterface;
+use App\Domain\Repositories\AddressRepositoryInterface;
+use App\Domain\Repositories\BannerRepositoryInterface;
+use App\Domain\Repositories\CategoryRepositoryInterface;
+use App\Domain\Repositories\OrderRepositoryInterface;
+use App\Domain\Repositories\ProductRepositoryInterface;
+use App\Domain\Repositories\UserRepositoryInterface;
 use App\Infrastructure\Repositories\AddressRepository;
 use App\Infrastructure\Repositories\BannerRepository;
 use App\Infrastructure\Repositories\CategoryRepository;

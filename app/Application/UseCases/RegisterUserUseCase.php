@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Application\UseCases;
 
 use App\Application\DTOs\UserDTO;
-use App\Application\Repositories\UserRepositoryInterface;
+use App\Domain\Repositories\UserRepositoryInterface;
 
 class RegisterUserUseCase
 {

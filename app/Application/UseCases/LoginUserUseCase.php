@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\UseCases;
 
-use App\Application\Repositories\UserRepositoryInterface;
+use App\Domain\Repositories\UserRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 
 class LoginUserUseCase

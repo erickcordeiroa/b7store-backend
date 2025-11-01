@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories;
 
-use App\Application\Repositories\ProductRepositoryInterface;
+use App\Domain\Repositories\ProductRepositoryInterface;
 use App\Domain\Entities\Product;
 use Illuminate\Support\Collection;
 

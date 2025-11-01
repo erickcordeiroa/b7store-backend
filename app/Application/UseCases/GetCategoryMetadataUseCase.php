@@ -7,7 +7,7 @@ namespace App\Application\UseCases;
 use App\Application\DTOs\CategoryDTO;
 use App\Application\DTOs\CategoryMetadataDTO;
 use App\Application\DTOs\MetadataValueDTO;
-use App\Application\Repositories\CategoryRepositoryInterface;
+use App\Domain\Repositories\CategoryRepositoryInterface;
 
 class GetCategoryMetadataUseCase
 {

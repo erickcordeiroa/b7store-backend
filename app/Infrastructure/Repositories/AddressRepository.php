@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories;
 
-use App\Application\Repositories\AddressRepositoryInterface;
+use App\Domain\Repositories\AddressRepositoryInterface;
 use App\Domain\Entities\Address;
 use App\Domain\Entities\User;
 use Illuminate\Support\Collection;

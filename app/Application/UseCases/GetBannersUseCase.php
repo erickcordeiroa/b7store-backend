@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Application\UseCases;
 
 use App\Application\DTOs\BannerDTO;
-use App\Application\Repositories\BannerRepositoryInterface;
+use App\Domain\Repositories\BannerRepositoryInterface;
 use Illuminate\Support\Collection;
 
 class GetBannersUseCase

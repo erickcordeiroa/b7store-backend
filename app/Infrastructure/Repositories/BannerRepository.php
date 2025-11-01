@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories;
 
-use App\Application\Repositories\BannerRepositoryInterface;
+use App\Domain\Repositories\BannerRepositoryInterface;
 use App\Domain\Entities\Banner;
 use Illuminate\Support\Collection;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories;
 
-use App\Application\Repositories\OrderRepositoryInterface;
+use App\Domain\Repositories\OrderRepositoryInterface;
 use App\Domain\Entities\Order;
 use App\Domain\Entities\OrderProduct;
 
