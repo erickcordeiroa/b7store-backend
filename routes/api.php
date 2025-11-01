@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\{ 
-    AddressesController,
-    BannerController,
-    CartController,
-    CategoryController,
-    ProductController,
-    UserController
-};
+use App\Infrastructure\Http\Controllers\AddressesController;
+use App\Infrastructure\Http\Controllers\BannerController;
+use App\Infrastructure\Http\Controllers\CartController;
+use App\Infrastructure\Http\Controllers\CategoryController;
+use App\Infrastructure\Http\Controllers\ProductController;
+use App\Infrastructure\Http\Controllers\UserController;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 

@@ -1,0 +1,75 @@
+---
+alwaysApply: true
+---
+
+# Laravel Clean Architecture / Hexagonal Standards
+
+Você deve sempre escrever código seguindo:
+
+- Clean Architecture
+- Hexagonal Architecture
+- SOLID
+- PSR-12 coding standards
+- Domain-Driven Design (DDD) quando aplicável
+- Sempre priorizar coesão e baixo acoplamento
+- Event-Driven quando adequado (Events + Listeners / Queue)
+
+## Estrutura base
+
+O projeto deve ser organizado seguindo portas e adapters:
+
+app/
+└── Domain/
+└── Application/
+└── Infrastructure/
+
+- `Domain` → Entidades, Value Objects, Regras de negócio
+- `Application` → Use Cases (Services), DTOs, Interfaces
+- `Infrastructure` → Repositórios, Providers, Implementações externas, Controllers, Requests, Resources
+
+## Regras Importantes
+
+- Controllers finos: apenas delegam para Use Cases.
+- Regras de negócio nunca ficam em controllers ou models.
+- Não usar lógica no Eloquent Model (apenas casts, relations e scopes pequenos).
+- Use Cases devem ter uma única responsabilidade.
+- Injeção de Dependência sempre.
+- Não retornar arrays crus — sempre usar DTOs ou Resources.
+- Nas entidades, não deixar elas cruas, levar a regra de negocio para dentro dela.
+
+## Exemplo de fluxo
+
+- Controller recebe request
+- Validação via FormRequest
+- Controller chama UseCase
+- UseCase chama Interface do Repository
+- Repository implementa Eloquent
+- UseCase retorna DTO
+- Controller retorna Resource
+
+## Estilo
+
+- Seguir PSR-12
+- Usar nomes claros e intencionais
+- Métodos curtos
+- Evitar God Classes
+- Testes preferencialmente unitários na camada Domain
+
+## Output esperado do Cursor
+
+Quando gerar código, sempre incluir:
+
+- Arquitetura correta
+- Interface de repository + implementação
+- UseCase
+- DTO se necessário
+- Controller chamando o UseCase
+- Testes basicos
+
+Sempre confirme:
+> "Esse código segue hexagonal, SOLID e PSR-12?"
+
+Se não seguir, deve refatorar automaticamente.
+
+Nunca gerar código que viole Hexagonal.
+Se a solicitação do usuário violar, sugerir alternativa correta.

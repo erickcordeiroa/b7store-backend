@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
-use App\Models\Product;
+use App\Domain\Entities\Category;
+use App\Domain\Entities\Product;
 use Illuminate\Database\Seeder;
 
 class CategoryMetadataSeeder extends Seeder

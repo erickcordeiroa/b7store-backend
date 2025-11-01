@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Banner;
+use App\Domain\Entities\Banner;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
